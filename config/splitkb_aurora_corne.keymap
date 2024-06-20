@@ -37,36 +37,36 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp COMMA>, <&kp RA(&kp EQUAL)>;
-};
+        };
         td_dot: tap_dance_dot {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_DOT";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp DOT>, <&kp RS(&kp 7)>;
-};
+        };
         td_fslh: tap_dance_fslh {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_FSLH";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp FSLH>, <&kp RS(&kp EQUAL)>;
-};
+        };
         td_pgup: tap_dance_pgup {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_PGUP";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp PGUP>, <&kp LC(&kp PGUP)>;
-};
+        };
         td_pgup: tap_dance_pgdn {
             compatible = "zmk,behavior-tap-dance";
             label = "TAP_DANCE_PGDN";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp PGDN>, <&kp LC(&kp PGDN)>;
-};
-hr: left_hand_positional_hold_tap {
+        };
+        hr: left_hand_positional_hold_tap {
             compatible = "zmk,behavior-hold-tap";
             label = "LEFT_POSITIONAL_HOLD_TAP";
             #binding-cells = <2>;
