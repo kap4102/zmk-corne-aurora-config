@@ -8,49 +8,133 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+/* Layers */
+#define BASE 0
+#define NAV 1
+#define NUM 3
+#define NUMP 4
 / {
-        keymap {
-                compatible = "zmk,keymap";
-
-                default_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
-                        >;
-                };
-                lower_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
-                        >;
-                };
-
-                raise_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
-                        >;
-                };
+    behaviors {
+        tldesc: tilde_escape {
+            compatible = "zmk,behavior-mod-morph";
+            label = "TILDE_ESCAPE";
+            #binding-cells = <0>;
+            bindings = <&kp ESC>, <&kp TILDE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+
+        bspc_del: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BACKSPACE_DELETE";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+            keep-mods = <(MOD_RSFT)>;
+        };
+        td_comma: tap_dance_comma {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_COMMA";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp COMMA>, <&kp RA(&kp EQUAL)>;
+};
+        td_dot: tap_dance_dot {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_DOT";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp DOT>, <&kp RS(&kp 7)>;
+};
+        td_fslh: tap_dance_fslh {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_FSLH";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp FSLH>, <&kp RS(&kp EQUAL)>;
+};
+        td_pgup: tap_dance_pgup {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_PGUP";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp PGUP>, <&kp LC(&kp PGUP)>;
+};
+        td_pgup: tap_dance_pgdn {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_PGDN";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp PGDN>, <&kp LC(&kp PGDN)>;
+};
+hr: left_hand_positional_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LEFT_POSITIONAL_HOLD_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-unless-interrupted";
+            tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <5 6 7 8 9 10>;    // <---[[right-hand keys]]
+        };
+};
+
+/ {
+  keymap {
+    compatible = "zmk,keymap";
+    base_layer {
+      label = "base";
+      bindings = <
+        // ╭──────────────────┬──────────┬──────────┬─────────────┬────────────┬─────────────╮   ╭─────────────┬─────────────┬──────────────┬───────────┬────────────┬──────────────────╮
+              &kp RBKT                       &kp Q              &kp W              &kp E                   &kp R                  &kp T                       &kp Y                   &kp U                    &kp I                     &kp O                &kp P                 &kp LBKT
+        // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
+              &kp NUBS                       &ht_tp LWIN A         &ht_tp LALT S         &ht_tp LSHFT D             &ht_tp LCTRL F            &ht_tp RALT G                  &ht_tp RALT H              &ht_tp RCTRL  J             &ht_tp LALT K                &ht_tp RSHFT L          &ht_tp RWIN SEMI         &kp SQT
+        // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
+              &mt LKBT LPAR                  &kp Z              &kp X              &kp C                   &kp V                  &kp B                       &kp N                   &kp M                    &tp_comma                 &tp_dot              &tp_fslh              &mt RKBT RPAR
+        // ╰──────────────────┴──────────┴──────────┴─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┴───────────┴────────────┴──────────────────╯
+                                                                                &ltu NUMP ESCAPE           &ht_tp LSHFT SPACE           &lt NAV RET                 &lt NAV TAB           &ht_tp LSHFT SPACE         &lt NUM &mt BKSP DEL
+        /                                                                        ╰─────────────┴────────────┴─────────────╯     ╰─────────────┴─────────────┴──────────────╯
+      >;
+    };
+    nav_layer {
+      label = "nav;
+      bindings = <
+        // ╭──────────────────┬──────────┬──────────┬─────────────┬────────────┬─────────────╮   ╭─────────────┬─────────────┬──────────────┬───────────┬────────────┬──────────────────╮
+              &kp RBKT                      &bt BT_CLR             &bt BT_NXT            &bt BT_PRV                  &out OUT_TOG               &kp CAPS                    &lt CAPS              &tpPG_UP               &kp HOME               &kp SYSREQ         &kp SLCK             &kp PAUSE_BREAK
+        // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
+              &kp NUBS                      &ht_tp LWIN A        &ht_tp LALT S       &ht_tp LSHIFT D           &ht_tp LCTRL F         &ht_tp RALT G                  &kp K_APP             &kp LEFT               &kp DOWN               &kp UP             &kp RIGHT            &kp SQT
+        // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
+              &mt LKBT LPAR                &kp Z              &kp X            &kp C                  &kp V               &kp B                       &kp INSERT            &tpPG_DOWN             &kp END                &kp_DOT            &kp_FSLH             &mt RKBT RPAR
+        // ╰──────────────────┴──────────┴──────────┴─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┴───────────┴────────────┴──────────────────╯
+                                                                                &kp_ESCAPE            &kp_SPACE            &kp_RET                   &kp_TAB                &kp_SPACE              &mt kp_BKSP DEL
+        //                                                                   ╰─────────────┴────────────┴─────────────╯   ╰─────────────┴─────────────┴──────────────╯
+      >;
+    };
+  num_layer {
+      label = "num";
+      bindings = <
+        // ╭──────────────────┬──────────┬──────────┬─────────────┬────────────┬─────────────╮   ╭─────────────┬─────────────┬──────────────┬───────────┬────────────┬──────────────────╮
+              &kp GRAVE                     &kp N1            &kp N2           &kp N3                 &kp N4              &kp N5                     &tp NUML N6            &kp N7                 &kp N8                  &kp N9             &kp N0               &kp MINUS
+        // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
+              &kp NUBS                      &ht_tp LWIN A        &ht_tp LALT S       &ht_tp LSHIFT D           &ht_tp LCTRL F         &ht_tp RALT G                 &KP_MINUS              &kp N4                 &kp N5                  &kp N6             &kp KP_DIVIDE        &kp PlUS
+        // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
+              &mt LSHFT LPAR                &kp Z             &kp X            &kp C                  &kp V               &kp_B                      &KP_PLUS               &kp N1                 &kp N2                  &kp N3             &kp KP_MULTIPLY      &kp EQUAL
+        // ╰──────────────────┴──────────┴──────────┴─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┴───────────┴────────────┴──────────────────╯
+                                                                                &kp LCTRL            &kp LGUI             &kp RET                    &KP_N0                 &kp_sep               &kp_RETURN
+        //                                                                   ╰─────────────┴────────────┴─────────────╯   ╰─────────────┴─────────────┴──────────────╯
+      >;
+    };
+  nump_layer {
+      label = "nump";
+      bindings = <
+        // ╭──────────────────┬──────────┬──────────┬─────────────┬────────────┬─────────────╮   ╭─────────────┬─────────────┬──────────────┬───────────┬────────────┬──────────────────╮
+              &kp GRAVE                     &kp N1            &kp N2           &kp N3                 &kp N4              &kp N5                     &kp NUML               &kp KP_N7            &kp KP_N8               &kp KP_N9          &kp KP_N0            &kp MIKP_NUS
+        // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
+              &kp KP_NUBS                   &kp_A             &kp_S            &kp_D                  &kp_F               &kp_G                      &KP_MIKP_NUS           &kp KP_N4             &ht_tp LCTRL KP_N5         &kp KP_N6          &kp KP_DIVIDE        &kp PlUS
+        // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
+              &mt LSHFT LPAR                &kp Z             &kp X            &kp C                  &kp V               &kp_B                      &KP_PLUS               &kp KP_N1             &kp KP_N2               &kp KP_N3          &kp KP_MULTIPLY      &kp EQUAL
+        // ╰──────────────────┴──────────┴──────────┴─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┴───────────┴────────────┴──────────────────╯
+                                                                                &kp LCTRL            &kp LGUI             &kp RET                    &KP_KP_N0                 &kp_sep               &kp_RETURKP_N
+        //                                                                   ╰─────────────┴────────────┴─────────────╯   ╰─────────────┴─────────────┴──────────────╯
+      >;
+    };
 };
