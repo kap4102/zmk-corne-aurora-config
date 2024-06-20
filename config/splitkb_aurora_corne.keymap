@@ -103,9 +103,9 @@
         // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
               &kp NUBS                      &ht_tp LWIN A        &ht_tp LALT S       &ht_tp LSHIFT D           &ht_tp LCTRL F         &ht_tp RALT G                  &kp K_APP             &kp LEFT               &kp DOWN               &kp UP             &kp RIGHT            &kp SQT
         // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
-              &mt LBKT LPAR                &kp Z              &kp X            &kp C                  &kp V               &kp B                       &kp INSERT            &tpPG_DOWN             &kp END                &kp_DOT            &kp_FSLH             &mt RBKT RPAR
+              &mt LBKT LPAR                &kp Z              &kp X            &kp C                  &kp V               &kp B                       &kp INSERT            &tpPG_DOWN             &kp END                &kp DOT            &kp FSLH             &mt RBKT RPAR
         // ╰──────────────────┴──────────┴──────────┴─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┴───────────┴────────────┴──────────────────╯
-                                                                                &kp_ESCAPE            &kp_SPACE            &kp_RET                   &kp_TAB                &kp_SPACE              &mt kp_BKSP DEL
+                                                                                &kp ESCAPE            &kp SPACE            &kp RET                   &kp TAB                &kp SPACE              &mt kp BKSP DEL
         //                                                                   ╰─────────────┴────────────┴─────────────╯   ╰─────────────┴─────────────┴──────────────╯
       >;
     };
@@ -115,11 +115,11 @@
         // ╭──────────────────┬──────────┬──────────┬─────────────┬────────────┬─────────────╮   ╭─────────────┬─────────────┬──────────────┬───────────┬────────────┬──────────────────╮
               &kp GRAVE                     &kp N1            &kp N2           &kp N3                 &kp N4              &kp N5                     &tp NUML N6            &kp N7                 &kp N8                  &kp N9             &kp N0               &kp MINUS
         // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
-              &kp NUBS                      &ht_tp LWIN A        &ht_tp LALT S       &ht_tp LSHIFT D           &ht_tp LCTRL F         &ht_tp RALT G                 &KP_MINUS              &kp N4                 &kp N5                  &kp N6             &kp KP_DIVIDE        &kp PlUS
+              &kp NUBS                      &ht_tp LWIN A        &ht_tp LALT S       &ht_tp LSHIFT D           &ht_tp LCTRL F         &ht_tp RALT G                 &KP MINUS              &kp N4                 &kp N5                  &kp N6             &kp KP DIVIDE        &kp PlUS
         // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
-              &mt LSHFT LPAR                &kp Z             &kp X            &kp C                  &kp V               &kp_B                      &KP_PLUS               &kp N1                 &kp N2                  &kp N3             &kp KP_MULTIPLY      &kp EQUAL
+              &mt LSHFT LPAR                &kp Z             &kp X            &kp C                  &kp V               &kp B                      &KP PLUS               &kp N1                 &kp N2                  &kp N3             &kp KP MULTIPLY      &kp EQUAL
         // ╰──────────────────┴──────────┴──────────┴─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┴───────────┴────────────┴──────────────────╯
-                                                                                &kp LCTRL            &kp LGUI             &kp RET                    &KP_N0                 &kp_sep               &kp_RETURN
+                                                                                &kp LCTRL            &kp LGUI             &kp RET                    &KP N0                 &kp sep               &kp RETURN
         //                                                                   ╰─────────────┴────────────┴─────────────╯   ╰─────────────┴─────────────┴──────────────╯
       >;
     };
@@ -127,13 +127,13 @@
       label = "nump";
       bindings = <
         // ╭──────────────────┬──────────┬──────────┬─────────────┬────────────┬─────────────╮   ╭─────────────┬─────────────┬──────────────┬───────────┬────────────┬──────────────────╮
-              &kp GRAVE                     &kp N1            &kp N2           &kp N3                 &kp N4              &kp N5                     &kp NUML               &kp KP_N7            &kp KP_N8               &kp KP_N9          &kp KP_N0            &kp MIKP_NUS
+              &kp GRAVE                     &kp N1            &kp N2           &kp N3                 &kp N4              &kp N5                     &kp NUML               &kp KP N7            &kp KP N8               &kp KP N9          &kp KP N0            &kp MIKP NUS
         // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
-              &kp KP_NUBS                   &kp_A             &kp_S            &kp_D                  &kp_F               &kp_G                      &KP_MIKP_NUS           &kp KP_N4             &ht_tp LCTRL KP_N5         &kp KP_N6          &kp KP_DIVIDE        &kp PlUS
+              &kp KP NUBS                   &kp A             &kp S            &kp D                  &kp F               &kp G                      &KP MIKP NUS           &kp KP N4             &ht_tp LCTRL KP N5         &kp KP N6          &kp KP DIVIDE        &kp PlUS
         // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
-              &mt LSHFT LPAR                &kp Z             &kp X            &kp C                  &kp V               &kp_B                      &KP_PLUS               &kp KP_N1             &kp KP_N2               &kp KP_N3          &kp KP_MULTIPLY      &kp EQUAL
+              &mt LSHFT LPAR                &kp Z             &kp X            &kp C                  &kp V               &kp B                      &KP PLUS               &kp KP N1             &kp KP N2               &kp KP N3          &kp KP MULTIPLY      &kp EQUAL
         // ╰──────────────────┴──────────┴──────────┴─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┴───────────┴────────────┴──────────────────╯
-                                                                                &kp LCTRL            &kp LGUI             &kp RET                    &KP_KP_N0                 &kp_sep               &kp_RETURKP_N
+                                                                                &kp LCTRL            &kp LGUI             &kp RET                    &KP KP N0                 &kp sep               &kp RETURKP N
         //                                                                   ╰─────────────┴────────────┴─────────────╯   ╰─────────────┴─────────────┴──────────────╯
       >;
     };
