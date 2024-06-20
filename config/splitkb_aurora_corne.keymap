@@ -78,18 +78,17 @@
         };
 };
 
-/ {
   keymap {
     compatible = "zmk,keymap";
     base_layer {
       label = "base";
       bindings = <
         // ╭──────────────────┬──────────┬──────────┬─────────────┬────────────┬─────────────╮   ╭─────────────┬─────────────┬──────────────┬───────────┬────────────┬──────────────────╮
-              &kp RBKT                       &kp Q              &kp W              &kp E                   &kp R                  &kp T                       &kp Y                   &kp U                    &kp I                     &kp O                &kp P                 &kp LBKT
+              &kp RBKT          &kp Q     &kp W       &kp E        &kp R        &kp T              &kp Y                   &kp U                    &kp I                     &kp O                &kp P                 &kp LBKT
         // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
-              &kp NUBS                       &ht_tp LWIN A         &ht_tp LALT S         &ht_tp LSHFT D             &ht_tp LCTRL F            &ht_tp RALT G                  &ht_tp RALT H              &ht_tp RCTRL  J             &ht_tp LALT K                &ht_tp RSHFT L          &ht_tp RWIN SEMI         &kp SQT
+              &kp NUBS        &ht_tp LWIN A &ht_tp LALT S &ht_tp LSHFT D &ht_tp LCTRL F          &ht_tp RALT G                  &ht_tp RALT H              &ht_tp RCTRL  J             &ht_tp LALT K                &ht_tp RSHFT L          &ht_tp RWIN SEMI         &kp SQT
         // ├──────────────────┼──────────┼──────────┼─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┼───────────┼────────────┼──────────────────┤
-              &mt LKBT LPAR                  &kp Z              &kp X              &kp C                   &kp V                  &kp B                       &kp N                   &kp M                    &tp_comma                 &tp_dot              &tp_fslh              &mt RKBT RPAR
+              &mt LKBT LPAR     &kp Z      &kp X      &kp C         &kp V       &kp B                       &kp N                   &kp M                    &tp_comma                 &tp_dot              &tp_fslh              &mt RKBT RPAR
         // ╰──────────────────┴──────────┴──────────┴─────────────┼────────────┼─────────────┤   ├─────────────┼─────────────┼──────────────┴───────────┴────────────┴──────────────────╯
                                                                                 &ltu NUMP ESCAPE           &ht_tp LSHFT SPACE           &lt NAV RET                 &lt NAV TAB           &ht_tp LSHFT SPACE         &lt NUM &mt BKSP DEL
         /                                                                        ╰─────────────┴────────────┴─────────────╯     ╰─────────────┴─────────────┴──────────────╯
