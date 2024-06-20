@@ -95,7 +95,7 @@
       >;
     };
     nav_layer {
-      label = "nav;
+      label = "nav";
       bindings = <
         // ╭──────────────────┬──────────┬──────────┬─────────────┬────────────┬─────────────╮   ╭─────────────┬─────────────┬──────────────┬───────────┬────────────┬──────────────────╮
               &kp RBKT                      &bt BT_CLR             &bt BT_NXT            &bt BT_PRV                  &out OUT_TOG               &kp CAPS                    &lt CAPS              &tpPG_UP               &kp HOME               &kp SYSREQ         &kp SLCK             &kp PAUSE_BREAK
